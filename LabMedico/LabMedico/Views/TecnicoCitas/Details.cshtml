@@ -1,0 +1,35 @@
+﻿@model LabMedico.Models.TecnicoCitas
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TecnicoCitas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tecnico.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tecnico.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CitaId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CitaId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TecnicoCitasId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

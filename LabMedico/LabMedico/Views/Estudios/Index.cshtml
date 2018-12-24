@@ -1,0 +1,55 @@
+﻿@model IEnumerable<LabMedico.Models.Estudio>
+
+@{
+    ViewBag.Title = "Estudios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Index", "Estudios", FormMethod.Get))
+{
+    <p class="form-inline">
+        Encontrar por nombre: @Html.TextBox("searchString", null, new { @class = "form-control" })
+        <input type="submit" value="Buscar" class="form-control-static" />
+    </p>
+}
+
+<p>
+    @Html.ActionLink("Registrar", "Create")
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Estatus)
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Estatus)
+                </td>*@
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.EstudioId }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.EstudioId }) |
+                @Html.ActionLink("Borrar", "Delete", new { id = item.EstudioId })
+            </td>
+        </tr>
+    }
+
+</table>

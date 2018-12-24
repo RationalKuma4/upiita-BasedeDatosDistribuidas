@@ -1,0 +1,49 @@
+﻿@model LabMedico.Models.Historico
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>¿Esta seguro que desea eliminarlo?</h3>
+<div>
+    <h4>Historico</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Citas.HoraAplicacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Citas.HoraAplicacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaRegistro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaRegistro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Monto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Monto)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver", "Index")
+        </div>
+    }
+</div>

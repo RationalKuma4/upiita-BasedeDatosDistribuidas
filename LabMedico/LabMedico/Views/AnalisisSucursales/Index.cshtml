@@ -1,0 +1,61 @@
+﻿@model IEnumerable<LabMedico.Models.AnalisisSucursal>
+
+@{
+    ViewBag.Title = "Analisis Sucursal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Index", "AnalisisSucursales", FormMethod.Get))
+{
+    <p class="form-inline">
+        Encontrar por nombre de sucursal: @Html.TextBox("searchString", null, new { @class = "form-control" })
+        <input type="submit" value="Buscar" class="form-control-static" />
+    </p>
+}
+
+<p>
+    @Html.ActionLink("Registrar", "Create")
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Analisis.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sucursales.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Costo)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Estatus)
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Analisis.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sucursales.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Costo)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Estatus)
+                </td>*@
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.AnalisisSucursalId }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.AnalisisSucursalId }) |
+                @Html.ActionLink("Borrar", "Delete", new { id = item.AnalisisSucursalId })
+            </td>
+        </tr>
+    }
+
+</table>

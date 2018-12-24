@@ -1,0 +1,133 @@
+﻿@model IEnumerable<LabMedico.Models.Tecnico>
+
+@{
+    ViewBag.Title = "Tecnicos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Index", "Tecnicos", FormMethod.Get))
+{
+    <p class="form-inline">
+        Encontrar por nombre: @Html.TextBox("searchString", null, new { @class = "form-control" })
+        <input type="submit" value="Buscar" class="form-control-static" />
+    </p>
+}
+
+<p>
+    @Html.ActionLink("Registrar", "Create")
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Estudios.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sucursales.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApellidoPaterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApellidoMaterno)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Calle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroInterior)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroExterior)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Colonia)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.DelegacionMunicipio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoPostal)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Edad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estatus)
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estudios.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sucursales.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApellidoPaterno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApellidoMaterno)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Calle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeroInterior)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeroExterior)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Colonia)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.DelegacionMunicipio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoPostal)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Edad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sexo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estatus)
+                </td>*@
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.TecnicoId }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.TecnicoId }) |
+                @Html.ActionLink("Borrar", "Delete", new { id = item.TecnicoId })
+            </td>
+        </tr>
+    }
+
+</table>

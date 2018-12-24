@@ -1,0 +1,74 @@
+﻿@model LabMedico.Models.Cita
+
+@{
+    ViewBag.Title = "Cancelar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>¿Esta seguro que desea cancerla la cita?</h3>
+<div>
+    <h4>Cita</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Analisis.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Analisis.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clientes.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clientes.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuarios.Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuarios.Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaAplicacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaAplicacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoraAplicacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoraAplicacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estatus)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Cancelar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver", "Index")
+        </div>
+    }
+</div>

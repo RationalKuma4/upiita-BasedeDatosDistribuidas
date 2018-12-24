@@ -1,0 +1,67 @@
+﻿@model IEnumerable<LabMedico.Models.Analisis>
+
+@{
+    ViewBag.Title = "Analisis";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Index", "Analisis", FormMethod.Get))
+{
+    <p class="form-inline">
+        Encontrar por nombre: @Html.TextBox("searchString", null, new { @class = "form-control" })
+        <input type="submit" value="Buscar" class="form-control-static" />
+    </p>
+}
+
+<p>
+    @Html.ActionLink("Registar Analisis", "Create")
+</p>
+<table class="table table-striped">
+    <tr>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Estudios.Nombre)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Requisitos)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Estatus)
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Estudios.Nombre)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Requisitos)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Estatus)
+                </td>*@
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.AnalisisId }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.AnalisisId }) |
+                @Html.ActionLink("Borrar", "Delete", new { id = item.AnalisisId })
+            </td>
+        </tr>
+    }
+
+</table>

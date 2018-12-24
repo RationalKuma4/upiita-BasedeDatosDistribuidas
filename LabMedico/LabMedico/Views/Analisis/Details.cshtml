@@ -1,0 +1,59 @@
+﻿@model LabMedico.Models.Analisis
+
+@{
+    ViewBag.Title = "Detalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Analisis</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Estudios.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estudios.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Requisitos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Requisitos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.AnalisisId }) |
+    @Html.ActionLink("Volver", "Index")
+</p>

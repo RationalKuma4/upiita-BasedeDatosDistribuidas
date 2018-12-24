@@ -1,0 +1,121 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    if (User.IsInRole("Administrador"))
+    {
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                        Sucursales <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            @Html.ActionLink("Zonas", "Index", "Zonas", routeValues: null, htmlAttributes: new { title = "Manage" })
+                        </li>
+                        <li>
+                            @Html.ActionLink("Sucursales", "Index", "Sucursales", routeValues: null, htmlAttributes: new { title = "Manage" })
+                        </li>
+                    </ul>
+
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                        Estudios <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            @Html.ActionLink("Estudios", "Index", "Estudios", routeValues: null, htmlAttributes: new { title = "Manage" })
+                        </li>
+                        <li>
+                            @Html.ActionLink("Analisis", "Index", "Analisis", routeValues: null, htmlAttributes: new { title = "Manage" })
+                        </li>
+                        <li>
+                            @Html.ActionLink("Asignar Analisis", "Index", "AnalisisSucursales", routeValues: null, htmlAttributes: new { title = "Manage" })
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                        Personal <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            @Html.ActionLink("Tecnicos", "Index", "Tecnicos", routeValues: null, htmlAttributes: new { title = "Manage" })
+                        </li>
+                        <li>
+                            @Html.ActionLink("Registrar Usuarios", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                        Gestion Citas <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            @Html.ActionLink("Procesar Citas", "ProcesaCitas", "Citas", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                        </li>
+                        <li>
+                            @Html.ActionLink("Historicos", "Index", "Historicos", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+            </ul>
+        }
+    }
+    else if (User.IsInRole("Recepcionista"))
+    {
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    @Html.ActionLink("Clientes", "Index", "Clientes", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>
+                @*<li>
+                        @Html.ActionLink("Citas", "Index", "Citas", routeValues: null, htmlAttributes: new { title = "Manage" })
+                    </li>*@
+                <li>
+                    @Html.ActionLink("Citas Pendientes", "Index", "Citas", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>
+                <li>
+                    @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+            </ul>
+        }
+    }
+    else if (User.IsInRole("Tecnico"))
+    {
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>
+                <li>
+                    @Html.ActionLink("Citas", "Index", "Citas", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+            </ul>
+        }
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        @*<li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
+        <li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

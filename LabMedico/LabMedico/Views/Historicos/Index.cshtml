@@ -1,0 +1,76 @@
+﻿@model IEnumerable<LabMedico.Models.Historico>
+
+@{
+    ViewBag.Title = "Historicos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @*@Html.ActionLink("Registrar", "Create")*@
+</p>
+
+@using (Html.BeginForm("ReportexSucursal", "Historicos"))
+{
+    @Html.AntiForgeryToken()
+    <table class="table table-striped">
+        <tr>
+            <th colspan="2">
+                Informes
+            </th>
+        </tr>
+        <tr class="form-inline">
+            <td>
+                <label>Sucursal</label>
+                @Html.DropDownList("Id", ViewBag.Sucursales as SelectList, htmlAttributes: new { @class = "form-control" })
+            </td>
+            <td>
+                <input type="submit" id="Search" value="Historicos Sucursal" class="btn btn-success" />
+            </td>
+        </tr>
+        <tr class="form-inline">
+            <td>
+                <label>Anual</label>
+            </td>
+            <td>
+                @Html.ActionLink("Historicos Anual", "ReporteAnual", "Historicos", htmlAttributes: new { @class = "btn btn-success" })
+            </td>
+        </tr>
+    </table>
+}
+
+@*<table class="table table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Citas.Usuarios.SucursalId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaRegistro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Monto)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Citas.Usuarios.SucursalId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaRegistro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Monto)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.HistoricoId }) |
+                    @Html.ActionLink("Detalle", "Details", new { id = item.HistoricoId }) |
+                    @Html.ActionLink("Borrar", "Delete", new { id = item.HistoricoId })
+                </td>
+            </tr>
+        }
+    </table>*@

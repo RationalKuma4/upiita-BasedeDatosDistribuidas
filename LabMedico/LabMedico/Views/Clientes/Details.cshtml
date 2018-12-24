@@ -1,0 +1,139 @@
+﻿@model LabMedico.Models.Cliente
+
+@{
+    ViewBag.Title = "Detalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApellidoPaterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApellidoPaterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApellidoMaterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApellidoMaterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Celular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Celular)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroInterior)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroInterior)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroExterior)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroExterior)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Colonia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Colonia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DelegacionMunicipio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DelegacionMunicipio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoPostal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoPostal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sexo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sexo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Peso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Peso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Edad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Edad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ClienteId }) |
+    @Html.ActionLink("Volver", "Index")
+</p>
